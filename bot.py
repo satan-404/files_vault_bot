@@ -1,3 +1,4 @@
+
 import os
 import re
 from telegram import Update
@@ -11,8 +12,8 @@ from telegram.ext import (
 from telegram.request import HTTPXRequest
 
 # ---------- CONFIGURATION ----------
-BOT_TOKEN = os.getenv("8224903873:AAFwdLzAvFpG2JW6w8DzOGr3H0zIXnvogLY")
-SECRET_CHANNEL_ID = int(os.getenv("1003509421903"))
+BOT_TOKEN = os.getenv("BOT_TOKEN")
+SECRET_CHANNEL_ID = int(os.getenv("SECRET_CHANNEL_ID"))
 
 FILE_STORE = {}
 
