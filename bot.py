@@ -1,4 +1,3 @@
-
 import os
 import re
 from telegram import Update
@@ -13,7 +12,12 @@ from telegram.request import HTTPXRequest
 
 # ---------- CONFIGURATION ----------
 BOT_TOKEN = os.getenv("BOT_TOKEN")
-SECRET_CHANNEL_ID = int(os.getenv("SECRET_CHANNEL_ID"))
+SECRET_CHANNEL_ID = os.getenv("SECRET_CHANNEL_ID")
+
+if not SECRET_CHANNEL_ID:
+    raise ValueError("SECRET_CHANNEL_ID is not set in Railway Variables")
+
+SECRET_CHANNEL_ID = int(SECRET_CHANNEL_ID)
 
 FILE_STORE = {}
 
