@@ -1,1 +1,4 @@
 *.db
+*.sqlite
+*.sqlite3
+backup_*.tar.gz
