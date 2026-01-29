@@ -318,11 +318,16 @@ def main():
 
     app.add_handler(CommandHandler("start", start))
     app.add_handler(CallbackQueryHandler(button_callback))
-    app.add_handler(MessageHandler(filters.PHOTO | filters.VIDEO, save_file))
-    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_text))
+    app.add_handler(MessageHandler(filters.PHOTO | filters.VIDEO | filters.DOCUMENT, file_handler))
+    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, text_handler))
 
-    print("🤖 FilesVault Bot running (SQLite)...")
-    app.run_polling()
+    print("🤖 FilesVault Bot running (Webhook, SQLite)...")
+
+    app.run_webhook(
+        listen="0.0.0.0",
+        port=8443,
+        webhook_url="https://KoAung.pythonanywhere.com/webhook"
+    )
 
 if __name__ == "__main__":
     main()
